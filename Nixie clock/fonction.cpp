@@ -66,14 +66,6 @@ int int_to_bcd(int val)
 	}
 
 	return  (high << 4) | val;
-	/*uint8_t bcd;
-	if(val >= 10)
-	{
-		bcd = val%10;
-		val /= 10;
-	}
-	bcd = bcd&0x0F|(val&0x0f<<4);
-	return bcd;*/
 }
 void setup_pins()
 {
@@ -103,7 +95,6 @@ void affichage_heur()
 }
 void affichage_date()
 {
-	//PORTB &= ~(LED_RED|LED_GREEN|LED_BLUE);
 	uint8_t envoi = rtc.r_jour();
 	envoi = (envoi>>4)|((envoi&0x0f)<<4);
 	shiftRegister.send(envoi, false);
@@ -278,7 +269,7 @@ void bouton()												//Gestion des BP pour configurer l'heur
 			switch(pousse)
 			{
 				case 1:										//Config des secondes
-					if(a > tmps_clignotement)				//Clignotement toute les ~500ms
+					if(a > tmps_clignotement)				//Clignotement 
 						clignotement(SR_SECONDE, false);
 					else
 						affichage_heur();
@@ -286,7 +277,7 @@ void bouton()												//Gestion des BP pour configurer l'heur
 						rtc.w_seconde(0x00);
 					break;
 				case 2:										//Config des minutes
-					if(a > tmps_clignotement)				//Clignotement toute les ~500ms
+					if(a > tmps_clignotement)				//Clignotement
 						clignotement(SR_MINUTE, false);
 					else
 						affichage_heur();
@@ -321,7 +312,7 @@ void bouton()												//Gestion des BP pour configurer l'heur
 					
 				break;
 				case 3:										//Config de l'heur
-					if(a > tmps_clignotement)				//Clignotement toute les ~500ms
+					if(a > tmps_clignotement)				//Clignotement toute les
 						clignotement(SR_HEUR, false);
 					else
 						affichage_heur();
@@ -354,7 +345,7 @@ void bouton()												//Gestion des BP pour configurer l'heur
 				break;
 				case  4:									//Config du jour
 					PORTC &= LOW(1<<SR_HEUR);
-					if(a > tmps_clignotement)				//Clignotement toute les ~500ms
+					if(a > tmps_clignotement)				//Clignotement
 						clignotement(SR_JOURS, true);
 					else
 						affichage_date();
@@ -386,7 +377,7 @@ void bouton()												//Gestion des BP pour configurer l'heur
 					}
 				break;
 				case 5:										//config du mois
-					if(a > tmps_clignotement)				//Clignotement toute les ~500ms
+					if(a > tmps_clignotement)				//Clignotement
 						clignotement(SR_MOIS, true);
 					else
 						affichage_date();
@@ -418,7 +409,7 @@ void bouton()												//Gestion des BP pour configurer l'heur
 					}
 				break;
 				case 6:										//Config de l'année
-					if(a > tmps_clignotement)				//Clignotement toute les ~500ms
+					if(a > tmps_clignotement)				//Clignotement
 						clignotement(SR_ANNEE, true);
 					else
 						affichage_date();

@@ -3,6 +3,9 @@
  *
  * Created: 19/12/2013 14:06:21
  *  Author: Adrien
+ * 
+ * Note : Après réflection, l'utilisation d'une class est inutile ...
+ *
  */
 
 #define F_CPU 16000000UL

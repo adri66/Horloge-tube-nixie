@@ -5,13 +5,6 @@
  * V:1.1Beta
  * Dernière modification : 27.05.14
  *
- *
- *
- * Nixie clock de VAN DAMME Adrien est mis à disposition selon
- * les termes de la licence Creative Commons Attribution - Pas
- * d'Utilisation Commerciale - Pas de Modification 4.0 International.
- *
- *
  */ 
 #define F_CPU 16000000UL //Fréquence horloge à 16Mhz
 #include <avr/io.h>
